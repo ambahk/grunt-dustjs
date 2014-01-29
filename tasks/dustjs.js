@@ -16,6 +16,7 @@ module.exports = function (grunt) {
     var options = this.options({
       fullname: false,
       transformQuote: false,
+      appendSpace : false,
       prepend : '',
       append : ''
     });
@@ -26,6 +27,9 @@ module.exports = function (grunt) {
 
       srcFiles.forEach(function (srcFile) {
         var sourceCode = grunt.file.read(srcFile);
+		if (options.appendSpace) {
+			sourceCode = sourceCode.replace(/(\r\n|\n|\r)/gm," \n");
+		}
         var sourceCompiled = compile(sourceCode, srcFile, options.fullname);
 
         if (options.transformQuote) {

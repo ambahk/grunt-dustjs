@@ -37,6 +37,9 @@ Used to customize the template variable names. If `fullname` is `true`, the full
 ##### `transformQuote` _default_: `false`
 Used to reverse quotes usage by dustjs: double quotes replaced by single quotes and vice versa. Output is more clean after this transformation.
 
+##### `appendSpace` _default_: `false`
+Append a space on each line of the dust template before compiling. This prevents bugs where the HTML formatter may remove trailing spaces from templates and thus incorrect HTML code.  
+
 ### Example #1
 
 ```javascript
